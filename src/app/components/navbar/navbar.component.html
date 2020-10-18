@@ -1,0 +1,12 @@
+<mat-toolbar>
+  <div>
+    <span *ngIf="theme.name === 'light-theme', else darkMode">{{theme.displayName}}</span>
+    <ng-template #darkMode>
+      <span>{{theme.displayName}}</span>
+    </ng-template>
+  </div>
+  <span class="spacer"></span>
+  <app-theme-picker></app-theme-picker>
+  <span class="spacer"></span>
+  <app-menu-example></app-menu-example>
+</mat-toolbar>

@@ -1,0 +1,17 @@
+@import '../../../node_modules/@angular/material/theming';
+@import 'src/app/app-theme';
+@import 'src/app/components/cards-example/card-theme';
+
+// Styles for the components that are based on the current theme.
+@mixin components-theme($theme) {
+  @include app-theme($theme);
+  @include card-theme($theme);
+}
+
+// Define the default light theme.
+$primary: mat-palette($mat-blue-gray, 50);
+$accent:  mat-palette($mat-blue, 500);
+$theme: mat-light-theme($primary, $accent);
+
+
+
