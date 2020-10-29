@@ -6,8 +6,8 @@
   $foreground: map-get($theme, foreground);
 
   app-cards-example {
-    p {
-      color: mat-color($accent);
+    mat-card-title {
+      color: mat-color($primary);
     }
   }
 }

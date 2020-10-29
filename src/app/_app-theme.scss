@@ -6,7 +6,7 @@
   $foreground: map-get($theme, foreground);
 
   app-root {
-    color: mat-color($primary, default-contrast);
+    color: map-get($foreground, text);
     background: map-get($background, background);
 
     h1 {
