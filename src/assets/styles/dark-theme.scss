@@ -41,18 +41,12 @@ $mat-dark-theme-foreground: (
   slider-off-active: rgba(white, 0.3),
 );
 
-
-h1, h2 {
-  color: mat-color($accent);
-}
-
-
 @function create-dark-theme($primary, $accent, $warn: mat-palette($mat-red)) {
   @return (
     primary: $primary,
     accent: $accent,
     warn: $warn,
-    is-dark: false,
+    is-dark: true,
     foreground: $mat-dark-theme-foreground,
     background: $mat-dark-theme-background,
   );

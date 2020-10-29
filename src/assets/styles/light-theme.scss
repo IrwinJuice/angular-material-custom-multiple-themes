@@ -40,10 +40,6 @@ $mat-light-theme-foreground: (
   slider-off-active: rgba(black, 0.38),
 );
 
-h1, h2 {
-  color: mat-color($accent);
-}
-
 @function create-light-theme($primary, $accent, $warn: mat-palette($mat-red)) {
   @return (
     primary: $primary,

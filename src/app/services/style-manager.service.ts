@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 /**
  * @description
  *
- * Represent a service for *-theme.css files management.
+ * Represents a service for *-theme.css files management.
  */
 
 

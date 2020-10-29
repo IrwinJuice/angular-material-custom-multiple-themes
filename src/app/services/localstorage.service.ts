@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 /**
  * @description
  *
- * Represent a service for storing a user's data in the LocalStorage.
+ * Represents a service for storing a user's data in the LocalStorage.
  */
 
 @Injectable({
