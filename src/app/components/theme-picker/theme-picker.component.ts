@@ -38,19 +38,14 @@ export class ThemePickerComponent implements OnInit {
 
     const theme = this.themeService.findTheme(themeName);
 
-    if (!theme) {
+    if (!theme) { // if theme doesn't exist in theme array
       return;
     }
     this.themeService.updateTheme(theme);
     this.currentTheme = theme;
 
-    if (theme.isDefault) {
-      this.styleService.removeStyle('theme');
-      this.styleService.setStyle('theme', `assets/${theme.name}.css`);
-    } else {
-      this.styleService.removeStyle('theme');
-      this.styleService.setStyle('theme', `assets/${theme.name}.css`);
-    }
+    this.styleService.removeStyle('theme');
+    this.styleService.setStyle('theme', `themes/${theme.name}.css`); // link to your theme.css file after build
 
     if (this.currentTheme) {
       this.localStorage.store(LocalStorageService.themeKey, this.currentTheme.name);

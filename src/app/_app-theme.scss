@@ -7,7 +7,7 @@
 
   app-root {
     color: mat-color($primary, default-contrast);
-    background: mat-color($primary);
+    background: map-get($background, background);
 
     h1 {
       color: mat-color($accent);
