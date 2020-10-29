@@ -1,6 +1,6 @@
-@import '../../../node_modules/@angular/material/theming';
-@import 'src/app/app-theme';
-@import 'src/app/components/cards-example/card-theme';
+@import '../../node_modules/@angular/material/theming';
+@import '../app/app-theme';
+@import '../app/components/cards-example/card-theme';
 
 // Styles for the components that are based on the current theme.
 @mixin components-theme($theme) {
