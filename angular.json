@@ -34,13 +34,13 @@
               },
               {
                 "inject": false,
-                "input": "src/assets/styles/dark-theme.scss",
-                "bundleName": "assets/dark-theme"
+                "input": "src/themes/dark-theme.scss",
+                "bundleName": "themes/dark-theme"
               },
               {
                 "inject": false,
-                "input": "src/assets/styles/light-theme.scss",
-                "bundleName": "assets/light-theme"
+                "input": "src/themes/light-theme.scss",
+                "bundleName": "themes/light-theme"
               }
             ],
             "scripts": []
@@ -134,6 +134,10 @@
               "devServerTarget": "multiple-themes:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
     }
