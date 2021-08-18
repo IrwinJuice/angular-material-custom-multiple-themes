@@ -1,8 +1,8 @@
 @use '~@angular/material' as mat;
+@use "../app/app.style" as body;
 @import 'node_modules/@angular/material/_theming.scss';
-@import "body-theme";
 
 // Styles for the components that are based on the current theme.
-@mixin components-theme($theme) {
-  @include body-theme($theme);
+@mixin theme($theme) {
+  @include body.theme($theme);
 }

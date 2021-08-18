@@ -1,0 +1,66 @@
+@use '../../../node_modules/@angular/material/index' as mat;
+@use 'sass:map';
+@use 'src/styles/theming';
+@use "../components.style" as components;
+
+@include mat.core();
+
+$orange-primary-text: rgba(199,91,57, 0.87);
+$orange-secondary-text: rgba(199,91,57, 0.54);
+$orange-disabled-text: rgba(199,91,57, 0.38);
+$orange-dividers: rgba(199,91,57, 0.12);
+$orange-disabled-button: rgba(199,91,57, 0.12);
+$orange-focused: rgba(199,91,57, 0.12);
+
+// Background palette for light themes.
+$orange-theme-background-palette: (
+  status-bar: map.get(mat.$orange-palette, 300),
+  app-bar: map.get(mat.$orange-palette, 100),
+  background: map.get(mat.$orange-palette, 50),
+  hover: rgba(black, 0.04),
+  card: map.get(mat.$orange-palette, 50),
+  dialog: map.get(mat.$orange-palette, 50),
+  disabled-button: rgba(black, 0.12),
+  raised-button: map.get(mat.$orange-palette, 50),
+  focused-button: $orange-focused,
+  selected-button: map.get(mat.$orange-palette, 300),
+  selected-disabled-button: map.get(mat.$orange-palette, 400),
+  disabled-button-toggle: map.get(mat.$orange-palette, 200),
+  unselected-chip: map.get(mat.$orange-palette, 300),
+  disabled-list-option: map.get(mat.$orange-palette, 200),
+  tooltip: map.get(mat.$orange-palette, 700),
+);
+
+// Foreground palette for light themes.
+$orange-theme-foreground-palette: (
+  base: black,
+  divider: $orange-dividers,
+  dividers: $orange-dividers,
+  disabled: $orange-disabled-text,
+  disabled-button: $orange-disabled-button,
+  disabled-text: $orange-disabled-text,
+  elevation: black,
+  hint-text: $orange-disabled-text,
+  secondary-text: $orange-secondary-text,
+  icon: rgba(black, 0.54),
+  icons: rgba(black, 0.54),
+  text: $orange-primary-text,
+  slider-min: rgba(black, 0.87),
+  slider-off: rgba(black, 0.26),
+  slider-off-active: rgba(black, 0.38),
+);
+
+// Define a light theme
+$orange-primary: mat.define-palette(mat.$orange-palette);
+$orange-accent: mat.define-palette(mat.$brown-palette);
+$orange-warn: mat.define-palette(mat.$red-palette);
+
+$orange-theme: theming.mat-create-color-config(
+    $orange-primary,
+    $orange-accent,
+    $orange-warn, false,
+    $orange-theme-foreground-palette,
+    $orange-theme-background-palette);
+@include mat.all-component-themes($orange-theme);
+@include components.theme($orange-theme);
+

@@ -1,11 +1,11 @@
-<mat-radio-group
-  aria-labelledby="example-radio-group-label"
-  class="example-radio-group"
-  [(ngModel)]="selectedTheme">
-  <mat-radio-button class="example-radio-button" *ngFor="let theme of themes" [value]="theme" (change)="selectTheme($event.value.name)">
-    {{theme.displayName}}
-  </mat-radio-button>
-</mat-radio-group>
-<button mat-raised-button>BUTTON</button>
-<br>
-{{selectedTheme | json}}
+<app-navbar></app-navbar>
+<div class="example">
+  <h1>Example title</h1>
+
+  <p>Phasellus tempus, felis in finibus vestibulum, felis augue tempus felis, in cursus diam ligula lacinia sem. Donec massa nisl, ornare at consectetur in, maximus vitae erat. Sed non neque id nisl tincidunt malesuada. Nam quis rhoncus ex. Maecenas ut sagittis tellus, quis eleifend nunc. Integer sem felis, eleifend ac urna ac, lobortis tempor mi. Fusce massa magna, egestas nec lacus at, venenatis scelerisque nibh. Etiam accumsan fringilla sagittis. Mauris malesuada at ligula at fringilla. Ut at tincidunt massa.
+  </p>
+
+  <div class="cards">
+    <app-cards-example  *ngFor="let i of [1, 2]" class="cards__card"></app-cards-example>
+  </div>
+</div>

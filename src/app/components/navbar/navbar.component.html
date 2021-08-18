@@ -1,0 +1,17 @@
+<mat-toolbar>
+  <div>
+      <span>{{selectedTheme.displayName}}</span>
+  </div>
+  <span class="spacer"></span>
+  <mat-radio-group
+    aria-labelledby="example-radio-group-label"
+    class="example-radio-group"
+    [(ngModel)]="selectedTheme">
+    <mat-radio-button class="example-radio-button" style="margin-right: 10px;" *ngFor="let theme of themes" [value]="theme" (change)="selectTheme($event.value.name)">
+      {{theme.displayName}}
+    </mat-radio-button>
+  </mat-radio-group>
+
+  <span class="spacer"></span>
+  <app-menu-example></app-menu-example>
+</mat-toolbar>

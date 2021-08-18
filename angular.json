@@ -36,17 +36,17 @@
                 "inject": true
               },
               {
-                "input": "src/theme/dark-theme.scss",
+                "input": "src/styles/custom-themes/dark-theme.scss",
                 "bundleName": "dark-theme",
                 "inject": false
               },
               {
-                "input": "src/theme/light-theme.scss",
+                "input": "src/styles/custom-themes/light-theme.scss",
                 "bundleName": "light-theme",
                 "inject": false
               },
               {
-                "input": "src/theme/orange-theme.scss",
+                "input": "src/styles/custom-themes/orange-theme.scss",
                 "bundleName": "orange-theme",
                 "inject": false
               }
