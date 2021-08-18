@@ -1,17 +1,9 @@
 import { Injectable } from '@angular/core';
 
-/**
- * @description
- *
- * Represents a service for *-theme.css files management.
- */
-
-
 @Injectable({
   providedIn: 'root'
 })
-export class StyleManagerService {
-
+export class StyleService {
   /**
    * Set the stylesheet with the specified key.
    */
@@ -29,24 +21,24 @@ export class StyleManagerService {
     }
   }
 
-// tslint:disable-next-line:typedef
-  getLinkElementForKey(key: string) {
+
+  getLinkElementForKey(key: string): Element {
     return this.getExistingLinkElementByKey(key) || this.createLinkElementWithKey(key);
   }
-// tslint:disable-next-line:typedef
-  getExistingLinkElementByKey(key: string) {
-    return document.head.querySelector(`link[rel="stylesheet"].${this.getClassNameForKey(key)}`);
+
+  getExistingLinkElementByKey(key: string): Element {
+    return document.head.querySelector(`link[rel="stylesheet"].${this.getClassNameForKey(key)}`) as Element;
   }
-// tslint:disable-next-line:typedef
-  createLinkElementWithKey(key: string) {
+
+  createLinkElementWithKey(key: string): Element {
     const linkEl = document.createElement('link');
     linkEl.setAttribute('rel', 'stylesheet');
     linkEl.classList.add(this.getClassNameForKey(key));
     document.head.appendChild(linkEl);
     return linkEl;
   }
-// tslint:disable-next-line:typedef
-  getClassNameForKey(key: string) {
+
+  getClassNameForKey(key: string): string {
     return `style-manager-${key}`;
   }
 }

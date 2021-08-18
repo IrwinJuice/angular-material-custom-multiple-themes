@@ -1,11 +1,4 @@
-import { Injectable } from '@angular/core';
-
-
-/**
- * @description
- *
- * Represents a service for storing a user's data in the LocalStorage.
- */
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +6,8 @@ import { Injectable } from '@angular/core';
 export class LocalStorageService {
 
   static themeKey = 'theme-current-name';
+  static langKey = 'current-lang';
+
 
   store(key: string, value: string): void {
     localStorage[key] = value;

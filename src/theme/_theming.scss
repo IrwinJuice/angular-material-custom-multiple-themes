@@ -1,0 +1,10 @@
+@function mat-create-color-config($primary, $accent, $warn, $dark, $foreground, $background) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+    is-dark: $dark,
+    foreground: $foreground,
+    background: $background,
+  );
+}

@@ -1,0 +1,72 @@
+@use '~@angular/material' as mat;
+@use 'sass:map';
+@use 'theming';
+@import "components-theme";
+
+@include mat.core();
+
+$dark-primary-text: rgba(black, 0.87);
+$dark-secondary-text: rgba(black, 0.54);
+$dark-disabled-text: rgba(black, 0.38);
+$dark-dividers: rgba(black, 0.12);
+$dark-focused: rgba(black, 0.12);
+$light-primary-text: white;
+$light-secondary-text: rgba(white, 0.7);
+$light-disabled-text: rgba(white, 0.5);
+$light-dividers: rgba(white, 0.12);
+$light-focused: rgba(white, 0.12);
+
+// Background palette for dark themes.
+$dark-theme-background-palette: (
+  status-bar: black,
+  app-bar:    map.get(mat.$grey-palette, 900),
+  background: #303030,
+  hover:      rgba(white, 0.04),
+  card:       map.get(mat.$grey-palette, 800),
+  dialog:     map.get(mat.$grey-palette, 800),
+  disabled-button: rgba(white, 0.12),
+  raised-button: map.get(mat.$grey-palette, 800),
+  focused-button: $light-focused,
+  selected-button: map.get(mat.$grey-palette, 900),
+  selected-disabled-button: map.get(mat.$grey-palette, 800),
+  disabled-button-toggle: black,
+  unselected-chip: map.get(mat.$grey-palette, 700),
+  disabled-list-option: black,
+  tooltip: map.get(mat.$grey-palette, 700),
+);
+
+// Foreground palette for dark themes.
+$dark-theme-foreground-palette: (
+  base:              white,
+  divider:           $light-dividers,
+  dividers:          $light-dividers,
+  disabled:          $light-disabled-text,
+  disabled-button:   rgba(white, 0.3),
+  disabled-text:     $light-disabled-text,
+  elevation:         black,
+  hint-text:         $light-disabled-text,
+  secondary-text:    $light-secondary-text,
+  icon:              white,
+  icons:             white,
+  text:              white,
+  slider-min:        white,
+  slider-off:        rgba(white, 0.3),
+  slider-off-active: rgba(white, 0.3),
+);
+
+
+// Define a dark theme
+$dark-primary: mat.define-palette(mat.$indigo-palette);
+$dark-accent: mat.define-palette(mat.$pink-palette);
+$dark-warn: mat.define-palette(mat.$red-palette);
+
+$dark-theme: theming.mat-create-color-config(
+    $dark-primary,
+    $dark-accent,
+    $dark-warn,
+    false,
+    $dark-theme-foreground-palette,
+    $dark-theme-background-palette);
+@include mat.all-component-themes($dark-theme);
+@include components-theme($dark-theme);
+
