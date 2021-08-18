@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Theme, ThemeService} from '../../shared/theme.service';
-import {StyleService} from '../../shared/style.service';
+import {StyleManager} from '../../shared/style-manager';
 import {LocalStorageService} from '../../shared/local-storage.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class NavbarComponent {
   themes: Theme[];
   selectedTheme: Theme;
 
-  constructor( public styleService: StyleService,
+  constructor( public styleService: StyleManager,
                private themeService: ThemeService,
                private localStorage: LocalStorageService) {
     this.themes = themeService.themes;

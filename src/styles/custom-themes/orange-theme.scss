@@ -1,6 +1,6 @@
 @use '../../../node_modules/@angular/material/index' as mat;
 @use 'sass:map';
-@use 'src/styles/theming';
+@use 'theming';
 @use "../components.style" as components;
 
 @include mat.core();
@@ -58,7 +58,8 @@ $orange-warn: mat.define-palette(mat.$red-palette);
 $orange-theme: theming.mat-create-color-config(
     $orange-primary,
     $orange-accent,
-    $orange-warn, false,
+    $orange-warn,
+    false,
     $orange-theme-foreground-palette,
     $orange-theme-background-palette);
 @include mat.all-component-themes($orange-theme);

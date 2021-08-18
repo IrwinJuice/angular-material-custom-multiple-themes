@@ -1,6 +1,6 @@
 @use '../../../node_modules/@angular/material/index' as mat;
 @use 'sass:map';
-@use 'src/styles/theming';
+@use 'theming';
 @use "../components.style" as components;
 
 @include mat.core();
@@ -55,16 +55,17 @@ $light-theme-foreground-palette: (
 );
 
 // Define a light theme
-$light-primary: mat.define-palette(mat.$deep-orange-palette);
-$light-accent: mat.define-palette(mat.$orange-palette);
+$light-primary: mat.define-palette(mat.$cyan-palette);
+$light-accent: mat.define-palette(mat.$teal-palette);
 $light-warn: mat.define-palette(mat.$red-palette);
 
-$light-theme: theming.mat-create-color-config(
+$theme: theming.mat-create-color-config(
     $light-primary,
     $light-accent,
-    $light-warn, false,
+    $light-warn,
+    false,
     $light-theme-foreground-palette,
     $light-theme-background-palette);
-@include mat.all-component-themes($light-theme);
-@include components.theme($light-theme);
+@include mat.all-component-themes($theme);
+@include components.theme($theme);
 
