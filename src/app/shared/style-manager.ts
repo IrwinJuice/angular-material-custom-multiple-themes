@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
-// Origin https://github.com/angular/material.angular.io/blob/2b98790d514e16c3318f7fb7058cf9f26b974371/src/app/shared/style-manager/style-manager.ts
-
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+  })
 export class StyleManager {
   /**
    * Set the stylesheet with the specified key.
