@@ -3,6 +3,7 @@
 @use 'theming';
 @use "../components.style" as components;
 
+
 @include mat.core();
 
 $orange-primary-text: rgba(199,91,57, 0.87);
@@ -55,13 +56,28 @@ $orange-primary: mat.define-palette(mat.$orange-palette);
 $orange-accent: mat.define-palette(mat.$brown-palette);
 $orange-warn: mat.define-palette(mat.$red-palette);
 
-$orange-theme: theming.mat-create-color-config(
+$orange-color-config: theming.mat-create-color-config(
     $orange-primary,
     $orange-accent,
     $orange-warn,
     false,
     $orange-theme-foreground-palette,
     $orange-theme-background-palette);
-@include mat.all-component-themes($orange-theme);
-@include components.theme($orange-theme);
+
+$button-primary: mat.define-palette(mat.$light-blue-palette);
+$button-accent: mat.define-palette(mat.$deep-purple-palette);
+$button-warn: mat.define-palette(mat.$purple-palette);
+
+
+$button-color-config: theming.mat-create-color-config(
+    $button-primary,
+    $button-accent,
+    $button-warn,
+    false,
+    $orange-theme-foreground-palette,
+    $orange-theme-background-palette);
+
+@include mat.all-component-themes($orange-color-config);
+@include mat.button-color($button-color-config);
+@include components.theme($orange-color-config);
 

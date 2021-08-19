@@ -4,13 +4,13 @@
 
 // Define the default light theme.
 
-$_theme: light-theme.$theme;
+$color-config: light-theme.$light-color-config;
 
 // Include material core styles.
 @include mat.core();
 
-@include mat.all-component-themes($_theme);
-@include components.theme($_theme);
+@include mat.all-component-themes($color-config);
+@include components.theme($color-config);
 
 
 

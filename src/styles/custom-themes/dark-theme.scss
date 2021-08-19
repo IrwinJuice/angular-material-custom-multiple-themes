@@ -60,13 +60,14 @@ $dark-primary: mat.define-palette(mat.$green-palette);
 $dark-accent: mat.define-palette(mat.$lime-palette);
 $dark-warn: mat.define-palette(mat.$red-palette);
 
-$dark-theme: theming.mat-create-color-config(
+$dark-color-config: theming.mat-create-color-config(
     $dark-primary,
     $dark-accent,
     $dark-warn,
     false,
     $dark-theme-foreground-palette,
-    $dark-theme-background-palette,);
-@include mat.all-component-themes($dark-theme);
-@include components.theme($dark-theme);
+    $dark-theme-background-palette);
+
+@include mat.all-component-themes($dark-color-config);
+@include components.theme($dark-color-config);
 

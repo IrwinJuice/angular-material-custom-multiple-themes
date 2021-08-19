@@ -59,13 +59,13 @@ $light-primary: mat.define-palette(mat.$cyan-palette);
 $light-accent: mat.define-palette(mat.$teal-palette);
 $light-warn: mat.define-palette(mat.$red-palette);
 
-$theme: theming.mat-create-color-config(
+$light-color-config: theming.mat-create-color-config(
     $light-primary,
     $light-accent,
     $light-warn,
     false,
     $light-theme-foreground-palette,
     $light-theme-background-palette);
-@include mat.all-component-themes($theme);
-@include components.theme($theme);
+@include mat.all-component-themes($light-color-config);
+@include components.theme($light-color-config);
 

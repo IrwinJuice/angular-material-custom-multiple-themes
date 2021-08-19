@@ -4,7 +4,7 @@ import {BehaviorSubject} from 'rxjs';
 
 export interface Theme {
   name: string;
-  displayName?: string;
+  displayName: string;
   accent?: string;
   primary?: string;
   isDark?: boolean;
@@ -17,8 +17,6 @@ export interface Theme {
 export class ThemeService {
 
   static defaultTheme: Theme =   {
-    primary: '#eceff1',
-    accent: '#26a69a',
     displayName: 'Light theme',
     name: 'light-theme',
     isDark: false,
@@ -27,16 +25,11 @@ export class ThemeService {
 
   themes: Theme[] = [
     {
-      primary: '#eceff1',
-      accent: '#26a69a',
       displayName: 'Orange theme',
       name: 'orange-theme',
       isDark: false,
-      isDefault: true,
     },
     {
-      primary: '#263238',
-      accent: '#26a69a',
       displayName: 'Dark theme',
       name: 'dark-theme',
       isDark: true,
