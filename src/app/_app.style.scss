@@ -4,9 +4,13 @@
 
   $background: map.get($theme, background);
   $foreground: map.get($theme, foreground);
+  $highlighted-text: map.get($background, highlighted-text);
 
   body {
     background-color: map.get($background, background);
-    color: map.get($foreground, text)
+    color: map.get($foreground, text);
+  }
+  .highlighted {
+    background-color: $highlighted-text;
   }
 }

@@ -1,11 +1,17 @@
-@use '../../../node_modules/@angular/material/index' as mat;
+// from libs
+@use '../../../node_modules/@angular/material/index' as mat; // Theming APIs
 @use 'sass:map';
-@use 'theming';
-@use "../components.style" as components;
+
+// from project
+@use 'theming'; // color config function
+@use "../components.style" as components; // @mixin with custom components
 
 
-@include mat.core();
+@include mat.core(); // Mixin that renders all of the core styles that are not theme-dependent.
 
+// just colors
+$light-primary-text: white;
+$dark-primary-text: rgba(black, 0.87);
 $orange-primary-text: rgba(199,91,57, 0.87);
 $orange-secondary-text: rgba(199,91,57, 0.54);
 $orange-disabled-text: rgba(199,91,57, 0.38);
@@ -13,26 +19,74 @@ $orange-dividers: rgba(199,91,57, 0.12);
 $orange-disabled-button: rgba(199,91,57, 0.12);
 $orange-focused: rgba(199,91,57, 0.12);
 
-// Background palette for light themes.
-$orange-theme-background-palette: (
-  status-bar: map.get(mat.$orange-palette, 300),
-  app-bar: map.get(mat.$orange-palette, 100),
-  background: map.get(mat.$orange-palette, 50),
-  hover: rgba(black, 0.04),
-  card: map.get(mat.$orange-palette, 50),
-  dialog: map.get(mat.$orange-palette, 50),
-  disabled-button: rgba(black, 0.12),
-  raised-button: map.get(mat.$orange-palette, 50),
-  focused-button: $orange-focused,
-  selected-button: map.get(mat.$orange-palette, 300),
-  selected-disabled-button: map.get(mat.$orange-palette, 400),
-  disabled-button-toggle: map.get(mat.$orange-palette, 200),
-  unselected-chip: map.get(mat.$orange-palette, 300),
-  disabled-list-option: map.get(mat.$orange-palette, 200),
-  tooltip: map.get(mat.$orange-palette, 700),
+// Custom pallet
+//
+// A palette is a collection of colors representing a portion of color space.
+// Each value in this collection is called a hue. In Material Design, each hues in a palette has an identifier number.
+// These identifier numbers include 50, and then each 100 value between 100 and 900.
+// The numbers order hues within a palette from lightest to darkest. See @angular\material\core\theming
+//
+// You can create your own palette by defining a Sass map that matches the structure described in the Palettes section above.
+// The map must define hues for 50 and each hundred between 100 and 900.
+// The map must also define a contrast map with contrast colors for each hue.
+// You can use the Material Design palette tool to help choose the hues in your palette.
+// https://material.io/resources/color
+
+$my-orange-palette: (
+  50: #fff3e0,
+  100: #ffe0b2,
+  200: #ffcc80,
+  300: #ffb74d,
+  400: #ffa726,
+  500: #ff9800,
+  600: #fb8c00,
+  700: #f57c00,
+  800: #ef6c00,
+  900: #e65100,
+  A100: #ffd180,
+  A200: #ffab40,
+  A400: #ff9100,
+  A700: #ff6d00,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $dark-primary-text,
+    700: $dark-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: black,
+  )
 );
 
-// Foreground palette for light themes.
+// Background palette for orange themes.
+$orange-theme-background-palette: (
+  status-bar: map.get($my-orange-palette, 300), // use your palette or palette from  @angular\material\core\theming
+  app-bar: map.get($my-orange-palette, 100),
+  background: map.get($my-orange-palette, 50),
+  hover: rgba(black, 0.04),
+  card: map.get($my-orange-palette, 50),
+  dialog: map.get($my-orange-palette, 50),
+  disabled-button: rgba(black, 0.12),
+  raised-button: map.get($my-orange-palette, 50),
+  focused-button: $orange-focused,
+  selected-button: map.get($my-orange-palette, 300),
+  selected-disabled-button: map.get($my-orange-palette, 400),
+  disabled-button-toggle: map.get($my-orange-palette, 200),
+  unselected-chip: map.get($my-orange-palette, 300),
+  disabled-list-option: map.get($my-orange-palette, 200),
+  tooltip: map.get($my-orange-palette, 700),
+  // hear you can add your own keys and use it in _components
+  highlighted-text:  map.get(mat.$blue-palette, 700),
+);
+
+// Foreground palette for orange themes.
 $orange-theme-foreground-palette: (
   base: black,
   divider: $orange-dividers,
@@ -49,14 +103,17 @@ $orange-theme-foreground-palette: (
   slider-min: rgba(black, 0.87),
   slider-off: rgba(black, 0.26),
   slider-off-active: rgba(black, 0.38),
+  // hear you can add your own keys and use it in _components
 );
 
-// Define a light theme
-$orange-primary: mat.define-palette(mat.$orange-palette);
+// Define an orange theme
+// main colors
+$orange-primary: mat.define-palette($my-orange-palette);
 $orange-accent: mat.define-palette(mat.$brown-palette);
 $orange-warn: mat.define-palette(mat.$red-palette);
 
-$orange-color-config: theming.mat-create-color-config(
+// color config function
+$orange-color-config: theming.mat-create-color-config( // see src/styles/custom-themes/_theming.scss
     $orange-primary,
     $orange-accent,
     $orange-warn,
@@ -64,11 +121,14 @@ $orange-color-config: theming.mat-create-color-config(
     $orange-theme-foreground-palette,
     $orange-theme-background-palette);
 
+// Start from Material 12 you can customize every standard material component
+
+// Define custom color scheme for buttons in orange theme
 $button-primary: mat.define-palette(mat.$light-blue-palette);
 $button-accent: mat.define-palette(mat.$deep-purple-palette);
 $button-warn: mat.define-palette(mat.$purple-palette);
 
-
+// buttons color config
 $button-color-config: theming.mat-create-color-config(
     $button-primary,
     $button-accent,
@@ -77,7 +137,12 @@ $button-color-config: theming.mat-create-color-config(
     $orange-theme-foreground-palette,
     $orange-theme-background-palette);
 
+// Add our custom themes' color config in all-component-themes
 @include mat.all-component-themes($orange-color-config);
+
+//  Emit styles for MatButton based on `$button-color-config`
 @include mat.button-color($button-color-config);
+
+// Add @mixin from our ../components.style
 @include components.theme($orange-color-config);
 

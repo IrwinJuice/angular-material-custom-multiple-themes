@@ -33,6 +33,8 @@ $light-theme-background-palette: (
   unselected-chip: map.get(mat.$grey-palette, 300),
   disabled-list-option: map.get(mat.$grey-palette, 200),
   tooltip: map.get(mat.$grey-palette, 700),
+  // hear you can add your own keys and use it in _components
+  highlighted-text:  map.get(mat.$red-palette, 700),
 );
 
 // Foreground palette for light themes.

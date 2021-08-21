@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "yourbook": {
+    "angular-material-custom-multiple-themes": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/yourbook",
+            "outputPath": "dist/angular-material-custom-multiple-themes",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -90,10 +90,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "yourbook:build:production"
+              "browserTarget": "angular-material-custom-multiple-themes:build:production"
             },
             "development": {
-              "browserTarget": "yourbook:build:development"
+              "browserTarget": "angular-material-custom-multiple-themes:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -101,7 +101,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "yourbook:build"
+            "browserTarget": "angular-material-custom-multiple-themes:build"
           }
         },
         "test": {
@@ -125,5 +125,5 @@
       }
     }
   },
-  "defaultProject": "yourbook"
+  "defaultProject": "angular-material-custom-multiple-themes"
 }

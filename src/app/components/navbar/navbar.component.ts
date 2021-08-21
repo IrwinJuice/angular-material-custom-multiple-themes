@@ -16,14 +16,14 @@ export class NavbarComponent {
   constructor( public styleService: StyleManager,
                private themeService: ThemeService,
                private localStorage: LocalStorageService) {
+
     this.themes = themeService.themes;
 
     const themeName = this.localStorage.getValue(LocalStorageService.themeKey);
 
     if (themeName) {
       this.selectedTheme = this.selectTheme(themeName);
-    }
-    else { // if the localstorage is empty  set the default light theme
+    } else { // if the localstorage is empty  set the default light theme
       this.selectedTheme = this.selectTheme(ThemeService.defaultTheme.name);
     }
   }
@@ -37,8 +37,8 @@ export class NavbarComponent {
       this.styleService.removeStyle('theme');
       this.styleService.setStyle('theme', `${theme.name}.css`);
       this.localStorage.store(LocalStorageService.themeKey, theme.name);
-      return theme;
 
+      return theme;
     }
 
     return ThemeService.defaultTheme;
