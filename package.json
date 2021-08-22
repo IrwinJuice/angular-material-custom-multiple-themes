@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build": "ng build --configuration production --base-href https://irwinjuice.github.io/mat-theme-page/",
+    "build": "ng build --configuration production --base-href https://irwinjuice.github.io/angular-material-custom-multiple-themes/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
