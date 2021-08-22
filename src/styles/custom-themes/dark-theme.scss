@@ -34,7 +34,7 @@ $dark-theme-background-palette: (
   disabled-list-option: black,
   tooltip: map.get(mat.$grey-palette, 700),
   // hear you can add your own keys and use it in _components
-  highlighted-text:  map.get(mat.$red-palette, 700),
+  highlighted-text:  map.get(mat.$light-green-palette, 500),
 );
 
 // Foreground palette for dark themes.

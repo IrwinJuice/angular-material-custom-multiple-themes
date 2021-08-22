@@ -1,6 +1,7 @@
 @use '~@angular/material' as mat;
 @use "styles/components.style" as components;
 @use "styles/custom-themes/light-theme" as light-theme;
+@import "styles/reset";
 
 // Define the default light theme.
 
@@ -11,6 +12,7 @@ $color-config: light-theme.$light-color-config;
 
 @include mat.all-component-themes($color-config);
 @include components.theme($color-config);
+
 
 
 

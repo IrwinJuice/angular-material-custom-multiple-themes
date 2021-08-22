@@ -13,7 +13,7 @@ export class NavbarComponent {
   themes: Theme[];
   selectedTheme: Theme;
 
-  constructor( public styleService: StyleManager,
+  constructor( public styleManager: StyleManager,
                private themeService: ThemeService,
                private localStorage: LocalStorageService) {
 
@@ -34,8 +34,8 @@ export class NavbarComponent {
 
     if (theme) {
       this.themeService.updateTheme(theme);
-      this.styleService.removeStyle('theme');
-      this.styleService.setStyle('theme', `${theme.name}.css`);
+      this.styleManager.removeStyle('theme');
+      this.styleManager.setStyle('theme', `${theme.name}.css`);
       this.localStorage.store(LocalStorageService.themeKey, theme.name);
 
       return theme;

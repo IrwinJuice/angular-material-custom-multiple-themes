@@ -83,7 +83,7 @@ $orange-theme-background-palette: (
   disabled-list-option: map.get($my-orange-palette, 200),
   tooltip: map.get($my-orange-palette, 700),
   // hear you can add your own keys and use it in _components
-  highlighted-text:  map.get(mat.$blue-palette, 700),
+  highlighted-text:  map.get(mat.$orange-palette, 300),
 );
 
 // Foreground palette for orange themes.

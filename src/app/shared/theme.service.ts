@@ -37,14 +37,14 @@ export class ThemeService {
     ThemeService.defaultTheme
   ];
 
-  private themeSubject$ = new BehaviorSubject(ThemeService.defaultTheme);
-  theme$ = this.themeSubject$.asObservable();
+  private themeSUB = new BehaviorSubject(ThemeService.defaultTheme); // stores the current theme
+  themeOBS = this.themeSUB.asObservable();
 
   constructor() {
   }
 
   updateTheme(theme: Theme): void {
-    this.themeSubject$.next(theme);
+    this.themeSUB.next(theme);
   }
 
   findTheme(themeName: string): Theme | undefined {

@@ -5,8 +5,7 @@ import {Injectable} from '@angular/core';
 })
 export class LocalStorageService {
 
-  static themeKey = 'theme-current-name';
-  static langKey = 'current-lang';
+  static readonly themeKey = 'theme-current-name';
 
 
   store(key: string, value: string): void {
