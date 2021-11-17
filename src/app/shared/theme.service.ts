@@ -1,6 +1,5 @@
-import {Injectable} from '@angular/core';
-import {BehaviorSubject} from 'rxjs';
-
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 export interface Theme {
   name: string;
@@ -12,11 +11,10 @@ export interface Theme {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ThemeService {
-
-  static defaultTheme: Theme =   {
+  static defaultTheme: Theme = {
     displayName: 'Light theme',
     name: 'light-theme',
     isDark: false,
@@ -34,20 +32,19 @@ export class ThemeService {
       name: 'dark-theme',
       isDark: true,
     },
-    ThemeService.defaultTheme
+    ThemeService.defaultTheme,
   ];
 
   private themeSUB = new BehaviorSubject(ThemeService.defaultTheme); // stores the current theme
   themeOBS = this.themeSUB.asObservable();
 
-  constructor() {
-  }
+  constructor() {}
 
   updateTheme(theme: Theme): void {
     this.themeSUB.next(theme);
   }
 
   findTheme(themeName: string): Theme | undefined {
-    return this.themes.find(currentTheme => currentTheme.name === themeName);
+    return this.themes.find((currentTheme) => currentTheme.name === themeName);
   }
 }
