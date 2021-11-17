@@ -13,32 +13,6 @@ $color-config: light-theme.$light-color-config;
 @include mat.all-component-themes($color-config);
 @include components.theme($color-config);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* not for styling*/
 app-root{
   position: absolute;
